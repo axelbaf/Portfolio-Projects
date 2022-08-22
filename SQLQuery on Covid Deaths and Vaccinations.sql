@@ -8,14 +8,14 @@ order by 1, 2
 
 Select location, date, total_cases, total_deaths, (total_deaths/total_cases)*100 AS DeathPercentage
 FROM CovidDeaths$
-where location like '%came%'
+where location like '%cameroon%'
 order by 1, 2
 
 -- Looking at the Total Cases vs Population
 
 Select location, date, population, total_cases, (total_cases/population)*100 AS PercentagePopulationInfected
 FROM CovidDeaths$
---where location like '%states%'
+--where location like '%Canada%'
 order by 1, 2
 
 -- Loking at the population with the highest infection rate compared to the population
@@ -32,7 +32,7 @@ ORDER BY PercentagePopulationInfected desc
 
 Select location, max(cast(total_deaths as int)) as TotalDeathsCount
 FROM CovidDeaths$
---where location like '%united states%'
+--where location like '%South Africa%'
 where continent is not null
 GROUP BY location
 ORDER BY TotalDeathsCount desc
@@ -41,7 +41,7 @@ ORDER BY TotalDeathsCount desc
 
 Select continent, max(cast(total_deaths as int)) as TotalDeathsCount
 FROM CovidDeaths$
---where location like '%united states%'
+--where location like '%China%'
 where continent is not null
 GROUP BY continent
 ORDER BY TotalDeathsCount desc
